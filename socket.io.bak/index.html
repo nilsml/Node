@@ -1,0 +1,21 @@
+<html>
+	<HEAD>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/client.js"></script>
+		<script>
+		  var socket = io.connect('http://localhost:8080');
+		  socket.on('news', function (data) {
+		    console.log(data);
+		    socket.emit('my other event', { my: 'data' });
+		  });
+		</script>
+	</HEAD>
+	<BODY>
+		Hello World!
+		<br>
+		<form>
+			<input id="textToSend" type="text">
+			<input type="button" value="Submit">
+		</form>
+	</BODY>
+</html>
