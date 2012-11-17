@@ -1,7 +1,6 @@
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
-  , fs = require('fs')
-  , path = require('path');
+  , fs = require('fs');
 
 app.listen(8080);
 
@@ -11,7 +10,7 @@ function handler (req, res) {
     filePath = './index.html';
   };
 
-  path.exists(filePath, function(exists){
+  fs.exists(filePath, function(exists){
     if (exists) {
       fs.readFile(filePath, function (err, data) {
         if (err) {
